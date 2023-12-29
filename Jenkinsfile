@@ -15,7 +15,7 @@ pipeline {
             steps {
                 // Install Node.js and npm
                 // Install project dependencies
-                sh 'yarn'
+                sh 'npm install'
             }
         }
 
