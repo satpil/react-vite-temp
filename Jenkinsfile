@@ -13,8 +13,9 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
+                // Install Node.js and npm
                 // Install project dependencies
-                sh 'yarn'
+                sh 'npm install'
             }
         }
 
@@ -22,14 +23,6 @@ pipeline {
             steps {
                 // Build the React app
                 sh 'npm run build'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                // Your deployment steps go here
-                // For example, deploy to a web server or cloud platform
-                // You may need to configure deployment steps based on your hosting environment
             }
         }
     }
