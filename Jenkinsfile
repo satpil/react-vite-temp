@@ -25,7 +25,7 @@ pipeline {
         stage('Copy to /var/www/html') {
             steps {
                 // Create /var/www/html directory if it doesn't exist
-                sh 'mkdir -p /var/www/html/'
+                sh 'sudo mkdir -p /var/www/html/'
 
                 // Copy files from Jenkins workspace/dist to /var/www/html/
                 sh 'sudo cp -r $WORKSPACE/dist/* /var/www/html/'
