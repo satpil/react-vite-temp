@@ -24,9 +24,8 @@ pipeline {
 
         stage('Copy to /var/www/html') {
             steps {
-                sh 'mkdir -p /var/www/html'
                 // Copy files from Jenkins workspace/dist to /var/www/html/
-                sh 'cp -r $WORKSPACE/dist/* /var/www/html'
+                sh 'cp -r $WORKSPACE/dist/  /var/www/html'
 
                 sh 'sudo chmod 755 /home/ec2-user/html/dist'
             }
