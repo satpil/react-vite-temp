@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the code from the repository
                 script {
                     checkout scm
                 }
@@ -13,28 +12,30 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                // Install Node.js and npm
-                // Install project dependencies
                 sh 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                // Build the React app
                 sh 'npm run build'
+            }
+        }
+
+        stage('Copy to /var/www/html') {
+            steps {
+                // Copy files from dist to /var/www/html
+                sh 'cp -r dist/* /var/www/html/'
             }
         }
     }
 
     post {
         success {
-            // Actions to perform after a successful build
             echo 'Build successful! Send notifications, etc.'
         }
 
         failure {
-            // Actions to perform after a failed build
             echo 'Build failed! Send notifications, etc.'
         }
     }
