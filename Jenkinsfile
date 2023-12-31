@@ -24,6 +24,9 @@ pipeline {
 
         stage('Copy to /var/www/html') {
             steps {
+                // Create /var/www/html directory if it doesn't exist
+                sh 'mkdir -p /var/www/html'
+
                 // Copy files from dist to /var/www/html
                 sh 'cp -r dist/* /var/www/html/'
             }
